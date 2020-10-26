@@ -1,0 +1,7 @@
+{
+  "name": "hk_veebiraamistikud",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
