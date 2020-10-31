@@ -1,0 +1,8 @@
+ionic -v
+ 
+npm install -g @ionic/cli
+ 
+ionic start --type=react
+Npm install firebase
+
+"noImplicitAny": false

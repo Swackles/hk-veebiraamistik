@@ -2,7 +2,8 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import BlogIndex from './pages/blog/index';
+import BlogAdd from './pages/blog/add';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,12 +24,28 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* firebase */
+import Firebase from 'firebase/app';
+import 'firebase/database'
+
+Firebase.initializeApp({
+  apiKey: "AIzaSyDK90euueW3Gatyl6Y9mPFgTeU6oVlfj1o",
+  authDomain: "hk-veebiraamistikud.firebaseapp.com",
+  databaseURL: "https://hk-veebiraamistikud.firebaseio.com",
+  projectId: "hk-veebiraamistikud",
+  storageBucket: "hk-veebiraamistikud.appspot.com",
+  messagingSenderId: "1091344948294",
+  appId: "1:1091344948294:web:d0910ab1787e637624be47",
+  measurementId: "G-NRCVW8JX89"
+})
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route path="/home" component={Home} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route path="/blogs" component={BlogIndex} exact={true} />
+        <Route path="/blogs/add" component={BlogAdd} exact={true} />
+        <Route exact path="/" render={() => <Redirect to="/blogs" />} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
